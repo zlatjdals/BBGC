@@ -19,5 +19,6 @@ data_imputed <- copula_imputation(data_mis , rep = 10, iter = 10000, burnin = 50
 results <- evaluate_copula(data_imputed, data_nonna, index_na)
 print(results$r_squared)
 print(results$coefficients)
+print(results$nrmse)
 
 results$plot
