@@ -51,7 +51,7 @@ get_MAR_testset <- function(data, prop = 0.1, prop2 = NULL, miss_force = FALSE) 
     tmp <- 0
     
     for (j in 1:k) {
-      tmp <- tmp + exp(-(w[j] * M[, j] * data[, j] + b[j] * (1 - M[, j])))
+      tmp <- tmp + exp(-(w[j] * (1 - M[, j]) * data[, j] + b[j] * M[, j]))
       prob <- (tmp * N * pm[j + 1]) / sum(tmp)
       prob[prob > 1] <- 1
       M[, (j + 1)] <- rbinom(N, 1, prob)
